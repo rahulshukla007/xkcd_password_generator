@@ -1,0 +1,77 @@
+Description and Deliverables
+One big reason why people choose weak passwords that are easily cracked is because they have been taught that only confusing passwords are secure. People either reject this advice and leave themselves vulnerable, or adopt password creation heuristics that are not resilient to cracking in practice (e.g., English word plus one capital letter, one random number, and one random symbol).
+
+In this project, you will gain hands-on experience creating secure, memorable passwords that are resistant to cracking. To accomplish this, you will write a program that generates secure, memorable passwords using the XKCD method (Links to an external site.).
+
+To receive full credit for this project, you will turn in the following:
+
+A program that you will write called project4/xkcdpwgen that can generate secure, memorable passwords using the XKCD method (Links to an external site.).
+This deliverable is described in greater detail below.
+
+Program Specification
+Your program may be written in any language that is available on the Khoury College Linux machines (this includes C, C++, Python 2 and 3, Java, Racket, Ruby, Perl, Go, Rust, and possibly others). Regardless of which language you choose, your program must exactly obey the following command line syntax:
+
+$ ./xkcdpwgen -h
+usage: xkcdpwgen [-h] [-w WORDS] [-c CAPS] [-n NUMBERS] [-s SYMBOLS]
+
+Generate a secure, memorable password using the XKCD method
+
+optional arguments:
+    -h, --help            show this help message and exit
+    -w WORDS, --words WORDS
+                          include WORDS words in the password (default=4)
+    -c CAPS, --caps CAPS  capitalize the first letter of CAPS random words
+                          (default=0)
+    -n NUMBERS, --numbers NUMBERS
+                          insert NUMBERS random numbers in the password
+                          (default=0)
+    -s SYMBOLS, --symbols SYMBOLS
+                          insert SYMBOLS random symbols in the password
+                          (default=0)
+Note that your program does not need to print this exact help text. However:
+
+Your program must support all five of these command-line arguments. Note that each argument is optional, i.e., the user may or may not supply it on the command line. Additionally, these arguments may be presented in any order on the command line.
+Your program must be named xkcdpwgen.
+Usage of xkcdpwgen
+By default, if you run xkcdpwgen with no arguments, it should produce a password composed of four random English words, all characters in lowercase, without numbers or symbols, like this:
+
+$ ./xkcdpwgen
+guacamoleexamgallopedcrediting
+
+$ ./xkcdpwgen
+flockdolliescitizenrysource
+
+$ ./xkcdpwgen
+autumnsbooboomultipliesbandwagons
+You are free to use any English wordlist that you wish as part of this project. Some reasonable wordlists are available here (Links to an external site.), here (Links to an external site.), and here (Links to an external site.). Make sure to turn in a copy of your wordlist with your project! (The file must be a line-delimited plaintext file [ie. every line contains one word], and must be named words.txt). You may assume that your program will be invoked from the same directory that contains your wordlist, and you will need to hard-code the filename of your wordlist in your program.
+
+The "-w" and "--words" arguments allow the user to override the number of words in the generated password. For example:
+
+./xkcdpwgen -w 2
+studiesexaminer
+
+$ ./xkcdpwgen -w 2
+luridlypiers
+The "-c" and "--caps" arguments capitalize the first letters of random words from the password. For example:
+
+./xkcdpwgen -c 2
+GrenadehostelriesBirdcagedirectives
+
+$ ./xkcdpwgen -c 2
+warehousedfootbathJiffyGazebo
+The "-n" and "--numbers" arguments add random numerical characters into the password, either at the beginning, end, or in-between words. The "-s" and "--symbols" arguments do the same thing but for symbol characters (~!@#$%^&*.:;). For example:
+
+$ ./xkcdpwgen -n 2 -s 2
+@$3genteelpredatorcrickets9frustrates
+
+$ ./xkcdpwgen -n 2 -s 4
+^saltiness77checkersvulgarly$saturn^;
+
+$ ./xkcdpwgen -n 2 -s 4
+~pushes%barre^5pricksgosh$9
+
+$ ./xkcdpwgen -n 2 -s 4
+putrefying$~7polycyclic.enneads1unamended!
+You may add additional functionality to your program if you wish, but these arguments must be available and behave exactly as specified in this project description. You may handle errors however you see fit. For example, the following invocation has an error; you may choose to display an error message or generate a "best-effort" password.
+
+$ ./xkcdpwgen -c 10

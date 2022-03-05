@@ -1,0 +1,43 @@
+1) Your program must be named xkcdpwgen.
+
+2) Your program must support all five of these command-line arguments. Note that each argument is optional, i.e., the user may or may not supply it on the command line. Additionally, these arguments may be presented in any order on the command line.
+
+optional arguments:
+    -h, --help            show this help message and exit
+    -w WORDS, --words WORDS
+                          include WORDS words in the password (default=4)
+    -c CAPS, --caps CAPS  capitalize the first letter of CAPS random words
+                          (default=0)
+    -n NUMBERS, --numbers NUMBERS
+                          insert NUMBERS random numbers in the password
+                          (default=0)
+    -s SYMBOLS, --symbols SYMBOLS
+                          insert SYMBOLS random symbols in the password
+                          (default=0)
+
+3) By default, if you run xkcdpwgen with no arguments, it should produce a password composed of four random English words, all characters in lowercase, without numbers or symbols, like this:
+
+################### need help ########################################## 
+4) You are free to use any English wordlist that you wish as part of this project. Some reasonable wordlists are available here (Links to an external site.), here (Links to an external site.), and here (Links to an external site.). Make sure to turn in a copy of your wordlist with your project! (The file must be a line-delimited plaintext file [ie. every line contains one word], and must be named words.txt). You may assume that your program will be invoked from the same directory that contains your wordlist, and you will need to hard-code the filename of your wordlist in your program.
+
+5) The "-w" and "--words" arguments allow the user to override the number of words in the generated password. For example:
+
+./xkcdpwgen -w 2
+studiesexaminer
+
+
+6)The "-c" and "--caps" arguments capitalize the first letters of random words from the password. For example:
+
+./xkcdpwgen -c     *** (means by default it contain 4 words & any two random words must be capital) ***
+GrenadehostelriesBirdcagedirectives
+
+$ ./xkcdpwgen -c 2
+warehousedfootbathJiffyGazebo
+
+*** but there is a catch the caps letter must be equal or less than number of word 
+$ ./xkcdpwgen -c 4 w 2 become wrong***
+
+7) The "-n" and "--numbers" arguments add random numerical characters into the password, either at the beginning, end, or in-between words. The "-s" and "--symbols" arguments do the same thing but for symbol characters (~!@#$%^&*.:;). For example:
+
+$ ./xkcdpwgen -n 2 -s 2
+@$3genteelpredatorcrickets9frustrates
